@@ -71,7 +71,7 @@ head(act_by_day,5)
 hist( act_by_day$steps
     , breaks = 11
     , main = "Number of steps per day"
-    , xlab = "Number of steps per day" )
+    , xlab = "Number of steps per day " )
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
@@ -105,7 +105,7 @@ act_by_interval <- aggregate(. ~ interval, activity[-2], mean)
 plot( act_by_interval
     , type = "l"
     , main = "Average number of steps taken, averaged across all days"
-    , ylab = "Average number of steps" )
+    , ylab = "Average number of steps " )
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
@@ -197,7 +197,7 @@ act_rep_by_day <- aggregate(. ~ date, activity_repaired[-3], sum)
 # show histogram
 hist( act_rep_by_day$steps, breaks = 11
     , main = "Number of steps per day"
-    , xlab = "Number of steps per day" )
+    , xlab = "Number of steps per day " )
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
@@ -234,7 +234,6 @@ daytype <- ifelse(weekdays((activity_repaired[,2])) %in% c("Saturday","Sunday"),
 
 # creating factor variable
 activity_repaired$daytype <- as.factor(daytype)
-
 
 
 # aggregate by interval, daytype
