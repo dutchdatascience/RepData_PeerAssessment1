@@ -197,7 +197,7 @@ act_rep_by_day <- aggregate(. ~ date, activity_repaired[-3], sum)
 # show histogram
 hist( act_rep_by_day$steps, breaks = 11
     , main = "Number of steps per day"
-    , xlab = "Number of steps per day " )
+    , xlab = "Number of steps per dayy" )
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
@@ -238,7 +238,14 @@ activity_repaired$daytype <- as.factor(daytype)
 
 # aggregate by interval, daytype
 act_rep_by_interval <- aggregate(activity_repaired$steps, by=list(activity_repaired$interval,activity_repaired$daytype), FUN=mean)
+
+#plot
+library(ggplot2)
+gg <-  ggplot(act_rep_by_interval, aes(Group.1,x))
+gg + geom_line() + facet_wrap ( ~ Group.2 , nrow=2 , ncol=1 )
 ```
+
+![](PA1_template_files/figure-html/unnamed-chunk-12-1.png) 
 
 
 
